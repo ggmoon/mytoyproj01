@@ -10,9 +10,10 @@ int main(int argc, char **argv)
     first[strlen(first)-1] = '\0'; /* remove the newline at the end */
 
     printf("Now enter your last name: ");
-    gets(last); /* buffer overflow? what's that? */
+    fgets(last, 255, stdin);
+    last[strlen(last)-1] = '\0'; /* remove the newline at the end */
 
-    printf("Hello %s %s!\n", first, last);
+    printf("Hello, %s %s!\n", first, last);
     return 0;
 }
 
